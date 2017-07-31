@@ -5,3 +5,4 @@ _SpecRunner.html
 .grunt/
 /build
 /vendor/
+config.php
