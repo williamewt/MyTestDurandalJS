@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div data-bind="html: userAvatar">
+                        </div>                       
+                        <br>
+                        <table class="table">
+                            <tr>
+                                <td><strong>Nome:</strong></td>
+                                <td data-bind="text: userName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usuário:</strong></td>
+                                <td data-bind="text: userUser">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>E-mail:</strong></td>
+                                <td data-bind="text: userEmail">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a data-bind="click: sair" style="cursor:pointer;">Sair</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -42,7 +42,7 @@ if($getUser['status'] != 1):
     $_SESSION['auth'] = false;
     echo json_encode([
         'success' => 0, 
-        'msg' => 'A sua conta ainda não foi ativada! Se não encontrou o e-mail olhe na caixa de spam ou <a href="#" onclick="sendEmailConfirm('.$iduser.');">Clique aqui</a> para receber outro link de confirmação.', 
+        'msg' => 'A sua conta ainda não foi ativada! Se não encontrou o e-mail olhe na caixa de spam.', 
         'alert' => 'alert-warning'
         ]);
     return false;

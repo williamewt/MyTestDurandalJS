@@ -1,4 +1,5 @@
-define(['plugins/http', 'durandal/app', 'knockout', 'knockout-validation'], function (http, app, ko) {
+
+define(['plugins/http', 'durandal/app', 'knockout', 'jwt_decode', 'knockout-validation'], function (http, app, ko, jwt_decode) {
     
     var user = ko.observable().extend({
         required: {
@@ -25,14 +26,19 @@ define(['plugins/http', 'durandal/app', 'knockout', 'knockout-validation'], func
         return true;
     }
    
-    
-    
+    var val = window.sessionStorage.getItem('auth');
+
+    if (val) {
+
+        return $(location).attr('href', '../#/perfil');
+    } 
+
     var vm = {
         displayName: 'Criar conta',
         user: user,
         password: password,
 
-        submit: function(){
+        submit: function () {
             if (vm.errors().length === 0) {
                 $('#alert-div').removeClass('alert-warning');
                 $('#alert-div').removeClass('alert-danger');
@@ -46,15 +52,15 @@ define(['plugins/http', 'durandal/app', 'knockout', 'knockout-validation'], func
                     data: dados,
                     async: false,
                     success: function (data) {
-                        console.log(data);                        
+                        console.log(data);
                         if (isJson(data)) {
                             data = JSON.parse(data);
                             $('#alert-div').addClass(data.alert);
                             $('#alert-msg').html(data.msg);
                             $('#alert-div').removeClass('hidden');
-                           // alert(data.msg);                                                 
-                            
-                        } else{
+                            // alert(data.msg);                                                 
+
+                        } else {
                             $.ajax({
                                 url: 'http://durundal.mytest.dev/api/checkJwt.php',
                                 type: 'POST',
@@ -70,14 +76,22 @@ define(['plugins/http', 'durandal/app', 'knockout', 'knockout-validation'], func
                                         // alert(data.msg);                                                 
 
                                     } else {
-                                        alert(data);
-                                        //$(location).attr('href', '../perfil');                                 
+                                        var decoded = jwt_decode(data);
+                                        console.log(decoded);
+                                        window.sessionStorage.setItem('auth', true);
+                                        window.sessionStorage.setItem('authName', decoded.userName);
+                                        window.sessionStorage.setItem('authEmail', decoded.userEmail);
+                                        window.sessionStorage.setItem('authUser', decoded.userUser);
+                                        window.sessionStorage.setItem('authId', decoded.userId);
+                                        //alert(decoded.userName);
+                                        $(location).attr('href', '../#/perfil');
+                                        window.location.reload();
                                     }
                                 },
                                 error: function (exception) {
                                     alert('Exeption: ' + exception);
                                 }
-                            });                                
+                            });
                         }
                     },
                     error: function (exception) {
@@ -85,7 +99,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'knockout-validation'], func
                     }
                 });
 
-            }else{
+            } else {
                 vm.errors.showAllMessages();
             }
         }
@@ -94,4 +108,5 @@ define(['plugins/http', 'durandal/app', 'knockout', 'knockout-validation'], func
     vm['errors'] = ko.validation.group(vm);
 
     return vm;
+    
 });

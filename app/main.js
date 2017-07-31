@@ -6,6 +6,8 @@
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-3.4.0',
         'knockout-validation': '../lib/knockout-validation/knockout.validation.min',
+        'jwt_decode': '../lib/jwt-decode/jwt-decode.min',
+        'md5': '../lib/md5/md5',
         'bootstrap': '../lib/bootstrap/js/bootstrap',
         'jquery': '../lib/jquery/jquery-1.9.1'
     },

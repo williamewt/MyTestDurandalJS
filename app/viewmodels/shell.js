@@ -8,9 +8,10 @@
         },
         activate: function () {
             router.map([
-                { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
+                { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: false },
                 { route: 'criarconta', title:'Criar Conta', moduleId: 'viewmodels/criarconta', nav: false },
                 { route: 'entrar', title: 'Entrar', moduleId: 'viewmodels/entrar', nav: false },
+                { route: 'perfil', title: 'Perfil', moduleId: 'viewmodels/perfil', nav: true },
                 { route: 'flickr', moduleId: 'viewmodels/flickr', nav: true }
             ]).buildNavigationModel();
             

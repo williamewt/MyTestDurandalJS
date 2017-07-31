@@ -18,6 +18,7 @@ module.exports = function( grunt ) {
             'bootstrap': '../lib/bootstrap/js/bootstrap',
             'knockout': '../lib/knockout/knockout-3.4.0.debug',
             'knockout-validation': '../lib/knockout-validation/knockout.validation',
+            'jwt_decode': '../lib/jwt-decode/jwt-decode',
             'text': '../lib/require/text',
             'durandal': '../lib/durandal/js',
             'plugins': '../lib/durandal/js/plugins',
