@@ -15,7 +15,9 @@ module.exports = function( grunt ) {
         baseUrl: 'app/',
         paths: {
             'jquery': '../lib/jquery/jquery-1.9.1',
-            'knockout': '../lib/knockout/knockout-2.3.0.debug',
+            'bootstrap': '../lib/bootstrap/js/bootstrap',
+            'knockout': '../lib/knockout/knockout-3.4.0.debug',
+            'knockout-validation': '../lib/knockout-validation/knockout.validation',
             'text': '../lib/require/text',
             'durandal': '../lib/durandal/js',
             'plugins': '../lib/durandal/js/plugins',

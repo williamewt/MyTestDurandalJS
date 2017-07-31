@@ -32,5 +32,9 @@
     "connect-livereload": "~0.3.0",
     "grunt-open": "~0.2.0",
     "mout": "~0.7.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2"
   }
 }

@@ -1,0 +1,16 @@
+{
+    "name": "will/my-test-durandal-js",
+    "require": {
+        "mailgun/mailgun-php": "^2.3",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message": "^1.6",
+        "lcobucci/jwt": "^3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "willewerton",
+            "email": "william_ewerton@outlook.com"
+        }
+    ]
+}
